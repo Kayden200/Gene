@@ -22,7 +22,7 @@ IMAP_PORT = 993
 SMTP_SERVER = "smtp.yandex.com"
 SMTP_PORT = 465
 USERNAME = "rylecohner@yandex.com"
-PASSWORD = "your_yandex_password"  # Use an app password if 2FA is enabled
+PASSWORD = "kirbyisntscared321"  # Use an app password if 2FA is enabled
 
 # OTP Storage Model
 class OTPRecord(db.Model):
