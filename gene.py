@@ -22,7 +22,7 @@ IMAP_PORT = 993
 SMTP_SERVER = "smtp.yandex.com"
 SMTP_PORT = 465
 USERNAME = "rylecohner@yandex.com"
-PASSWORD = "kirbyisntscared321"  # Use an app password if 2FA is enabled
+PASSWORD = "your_yandex_password"  # Use an app password if 2FA is enabled
 
 # OTP Storage Model
 class OTPRecord(db.Model):
@@ -56,6 +56,10 @@ def send_otp(email_alias, otp_code):
     except Exception as e:
         print(f"Error sending OTP: {e}")
         return False
+
+@app.route('/')
+def home():
+    return "Welcome to the Yandex Email Generator API!"
 
 @app.route('/generate_alias', methods=['GET'])
 def generate_alias():
@@ -140,4 +144,4 @@ def verify_otp():
         return jsonify({"error": "Invalid OTP"}), 400
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
